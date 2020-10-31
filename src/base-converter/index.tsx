@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import BinaryValueDisplay from "./BinaryValueDisplay";
 import DisplayTemplate from "./DisplayTemplate";
 import HexadecimalValueDisplay from "./HexadecimalValueDisplay";
@@ -65,6 +66,9 @@ const BaseConverter: React.FC = () => {
 
   return (
     <div onKeyDown={handleKeyDown} tabIndex={0}>
+      <Helmet>
+        <title>Base Converter</title>
+      </Helmet>
       BaseConverter
       <DisplayTemplate
         name="Decimal"
@@ -94,7 +98,7 @@ const BaseConverter: React.FC = () => {
         focused={base === BaseType.BINARY}
         onClick={() => setBase(BaseType.BINARY)}
       >
-        <BinaryValueDisplay value={value} />
+        <BinaryValueDisplay value={value} onChange={setValue} />
       </DisplayTemplate>
     </div>
   );
