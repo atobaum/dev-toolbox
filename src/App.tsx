@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Route, Switch } from "react-router-dom";
+import Home from "./home";
+import BaseConverter from "./base-converter";
+import Sidebar from "./template/Sidebar";
+import styled from "styled-components";
+
+const links = [
+  { name: "Home", to: "/" },
+  { name: "Base Converter", to: "/baseconverter" },
+];
+
+const AppBlock = styled.div`
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  height: 100vh;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppBlock className="App">
+      <Sidebar links={links} />
+      <Switch>
+        <Route path="/baseconverter">
+          <BaseConverter />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </AppBlock>
   );
 }
 
