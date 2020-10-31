@@ -10,7 +10,7 @@ on:
       - "src/**"
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     strategy:
@@ -41,7 +41,6 @@ jobs:
           registry-url: "https://npm.pkg.github.com"
 
       - name: Build
-        working-directory: client
         run: |
           yarn
           yarn build
