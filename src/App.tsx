@@ -5,10 +5,12 @@ import Home from "./home";
 import BaseConverter from "./base-converter";
 import Sidebar from "./template/Sidebar";
 import styled from "styled-components";
+import Base64Converter from "./base64-converter";
 
 const links = [
   { name: "Home", to: "/" },
   { name: "Base Converter", to: "/baseconverter" },
+  { name: "Base64 Converter", to: "/base64" },
 ];
 
 const AppBlock = styled.div`
@@ -22,6 +24,9 @@ function App() {
     <AppBlock className="App">
       <Sidebar links={links} />
       <Switch>
+        <Route path="/base64">
+          <Base64Converter />
+        </Route>
         <Route path="/baseconverter">
           <BaseConverter />
         </Route>
