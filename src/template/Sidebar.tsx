@@ -36,6 +36,7 @@ const Sidebar: React.FC<{ links: { name: string; to: string }[] }> = ({
           </li>
         ))}
       </ul>
+      <div>version: {process.env.REACT_APP_VERSION}</div>
     </SidebarBlock>
   );
 };
